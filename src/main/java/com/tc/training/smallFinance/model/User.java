@@ -14,6 +14,7 @@ import java.util.UUID;
 
 @Data
 @Entity
+@Table(name = "\"user\"")
 public class User {
 
     @Id
@@ -27,7 +28,6 @@ public class User {
     private String lastName;
 
     @NotBlank
-    @Pattern(regexp="^.*(?=.{6,12})(?=.*[a-z])(?=.*[A-Z])(?=.*[@!#$%&*]).*$")
     private String password;
 
     private LocalDate dob;

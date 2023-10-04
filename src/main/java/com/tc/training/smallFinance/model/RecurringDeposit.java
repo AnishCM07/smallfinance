@@ -32,7 +32,7 @@ public class RecurringDeposit {
 
     private LocalDate maturityDate;
 
-    private List<Long> transactionIds;
+    //private List<Long> transactionIds;
 
     @Enumerated(EnumType.STRING)
     private RdStatus status = RdStatus.ACTIVE;

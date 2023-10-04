@@ -22,11 +22,6 @@ public class LoanController {
     public LoanOutputDto addLoan(@RequestBody LoanInputDto loanInputDto){
         return loanService.addLoan(loanInputDto);
     }
-    @PostMapping("/check")
-    public ResponseEntity<Object> check(@RequestBody LoanInputDto ch)
-    {
-        return  ResponseEntity.ok(ch);
-    }
 
     @GetMapping("/getById")
     public LoanOutputDto getAll(@RequestParam UUID id){

@@ -21,6 +21,4 @@ public class TransactionInputDto {
     private String trans;
 
 
-
-
 }

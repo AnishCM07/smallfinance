@@ -153,7 +153,7 @@ public class FixedDepositServiceImpl implements FixedDepositService {
     }
 
     @Override
-    public List<FixedDepositOutputDto> getAll() {
+    public List<FixedDepositOutputDto>  getAll() {
         return fixedDepositRepository.findAll().stream().map(fd->modelMapper.map(fd, FixedDepositOutputDto.class)).collect(Collectors.toList());
     }
 
@@ -206,8 +206,6 @@ public class FixedDepositServiceImpl implements FixedDepositService {
     }
     @Async
     public void maturedAccount(FixedDeposit fd){
-
-
 
         String interest = fd.getSlabs().getInterestRate();
         Double interestAmount = (fd.getAmount() * Double.valueOf(interest) * 1)/100;

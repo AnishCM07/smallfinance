@@ -46,6 +46,5 @@ public class FixedDeposit {
 
     private Double interestAmount = 0D;
 
-    private List<UUID> transactionIds = new ArrayList<>();
 
 }

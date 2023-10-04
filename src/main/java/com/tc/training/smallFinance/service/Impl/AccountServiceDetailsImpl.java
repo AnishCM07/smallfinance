@@ -45,7 +45,7 @@ public class AccountServiceDetailsImpl implements AccountServiceDetails {
     @Autowired
     private LoanService loanService;
 
-    private static long lastTimestamp = 8804175630060000L;
+    private static long lastTimestamp = 8804175630060020L;
 
     private static int sequence = 0;
 
@@ -151,8 +151,10 @@ public class AccountServiceDetailsImpl implements AccountServiceDetails {
 
     private synchronized Long generateUniqueAccountNumber() {
         List<AccountDetails> accountDetailsList = accountRepository.findAll();
-        Collections.sort(accountDetailsList, Comparator.comparing(AccountDetails::getAccountNumber));
-        lastTimestamp = accountDetailsList.get(accountDetailsList.size()-1).getAccountNumber();
+        if(!accountDetailsList.isEmpty()) {
+            Collections.sort(accountDetailsList, Comparator.comparing(AccountDetails::getAccountNumber));
+            lastTimestamp = accountDetailsList.get(accountDetailsList.size() - 1).getAccountNumber();
+        }
         return ++lastTimestamp;
     }
 
